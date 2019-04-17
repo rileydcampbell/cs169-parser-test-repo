@@ -1,0 +1,55 @@
+<% # in app/views/jsonfiles/show.html.haml %>
+<div class="content-container">
+
+  <div class="back">
+    <%= link_to 'Back to file list', xfiles_path %>
+  </div>
+
+  <div class="label_title">
+    Filename and Content
+  </div>
+
+    <div class="content-card drop-shadow">
+        <div class="card-header">
+          <%= @xfile.name %>
+        </div>
+
+        <div id="json-content" class="body-text">
+          <%= eval(@xfile.content).to_json %>
+        </div>
+      </li>
+    </div>
+
+  <div class="label_title">
+    Properties
+  </div>
+
+  <div class="prop_container">
+    <% @properties.each do |prop| %>
+      <div class="prop-button drop-shadow">
+        <%= prop %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="label_title">
+    Graph of Properties
+  </div>
+
+  <p>
+    Click and drag to pan, scroll up and down to zoom.
+  </p>
+  <script>
+      // pull json to use in d3 graph visualization
+      var jsonString = document.getElementById('json-content').innerText;
+  </script>
+  <%= javascript_include_tag "https://d3js.org/d3.v5.min.js" %>
+  <%= javascript_include_tag "d3_graph" %>
+
+
+  <%= button_to 'Delete File', xfile_path(@xfile), :method => :delete, :confirm => 'Are you sure?', :class => 'button delete-button drop-shadow' %>
+
+
+</div>
+
+

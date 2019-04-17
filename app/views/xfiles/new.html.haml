@@ -1,0 +1,15 @@
+%h1 Create New File
+
+= form_tag xfiles_path, multipart: true do
+
+  = label :xfile, :name, 'File Name'
+  = text_field :xfile, 'name'
+
+  = label :xfile, :content, 'File'
+  = file_field_tag :content
+
+  = submit_tag 'import'
+
+
+
+= link_to 'Back to file list', xfiles_path

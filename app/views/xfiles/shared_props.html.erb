@@ -1,0 +1,23 @@
+<% # in app/views/jsonfiles/show.html.haml %>
+<div class="content-container">
+
+  <div class="back">
+    <%= link_to 'Back to file list', xfiles_path %>
+  </div>
+
+  <div class="label_title">
+    Filename and Content
+  </div>
+
+  <div class="label_title">
+    Properties
+  </div>
+
+  <div class="prop_container">
+    <% @shared_set.each do |prop| %>
+      <div class="prop-button drop-shadow">
+        <%= prop %>
+      </div>
+    <% end %>
+  </div>
+</div>

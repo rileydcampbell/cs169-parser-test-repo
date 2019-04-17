@@ -1,0 +1,19 @@
+<% #  This file is app/views/xiles/index.html.haml %>
+
+<div class="content-container">
+  <div class="label_title">
+    Uploaded Files
+  </div>
+  <table id="jsonfiles">
+    <tbody>
+      <% @xfiles.each do |xfile| %>
+        <tr class="drop-shadow">
+          <td>
+            <%= link_to "More about #{xfile.name}", xfile_path(xfile) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'Add new File', new_xfile_path %>
+</div>
